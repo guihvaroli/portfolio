@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guilherme Vedovelli Varoli — Junior Full-Stack Developer</title>
+  <meta name="description" content="Portfolio of Guilherme Vedovelli Varoli. Junior Full-Stack Developer & Computer Science Undergraduate at Universidade São Judas Tadeu." />
+  <meta name="author" content="Guilherme Vedovelli Varoli" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Guilherme Vedovelli Varoli — Junior Full-Stack Developer" />
+  <meta property="og:description" content="Junior Full-Stack Developer & Computer Science Undergraduate. Practical experience in web development, cloud tools, and infrastructure." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            surface: {
+              DEFAULT: '#0c0a0b',
+              subtle: '#120f11',
+              card: '#161214',
+              border: 'rgba(255, 255, 255, 0.07)',
+              borderHover: 'rgba(185, 28, 28, 0.35)',
+            },
+            crimson: {
+              50: '#fef2f2',
+              100: '#fee2e2',
+              200: '#fecaca',
+              300: '#fca5a5',
+              400: '#f87171',
+              500: '#ef4444',
+              600: '#dc2626',
+              700: '#b91c1c',
+              800: '#991b1b',
+              900: '#7f1d1d',
+              950: '#450a0a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0c0a0b;
+      color: #d6d3d1;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .ambient-glow {
+      position: absolute;
+      width: 600px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(127, 29, 29, 0.08) 0%, rgba(12, 10, 11, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .organic-card {
+      background: #141012;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: border-color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+    }
+
+    .organic-card:hover {
+      border-color: rgba(185, 28, 28, 0.35);
+      background-color: #171315;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0c0a0b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #272225;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #40373c;
+    }
+  </style>
+</head>
+
+<body class="relative min-h-screen selection:bg-crimson-900/40 selection:text-crimson-200">
+
+  <div class="ambient-glow top-0 left-1/2 -translate-x-1/2"></div>
+  <div class="ambient-glow top-[45%] right-0"></div>
+
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 px-6 sm:px-12 border-b border-white/[0.06] bg-[#0c0a0b]/90 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      
+      <a href="#hero" class="group flex items-center gap-3 text-stone-200 hover:text-white transition-colors">
+        <span class="w-2 h-2 rounded-full bg-crimson-700 group-hover:bg-crimson-500 transition-colors"></span>
+        <span class="text-sm font-semibold tracking-tight">Guilherme Varoli</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm text-stone-400">
+        <a href="#about" class="nav-link hover:text-stone-200 transition-colors">About</a>
+        <a href="#skills" class="nav-link hover:text-stone-200 transition-colors">Skills</a>
+        <a href="#projects" class="nav-link hover:text-stone-200 transition-colors">Projects</a>
+        <a href="#contact" class="nav-link hover:text-stone-200 transition-colors">Contact</a>
+      </nav>
+
+      <div class="hidden md:block">
+        <a href="#contact" class="text-xs font-medium text-stone-300 hover:text-white px-3.5 py-1.5 rounded-md border border-white/[0.1] hover:border-crimson-800 transition-colors">
+          Get in touch
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden text-stone-400 hover:text-white focus:outline-none p-1" aria-label="Toggle Menu">
+        <svg id="menu-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+        <svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 border-t border-white/[0.06] mt-4 space-y-2 text-sm text-stone-300">
+      <a href="#about" class="mobile-nav-link block py-2 hover:text-white">About</a>
+      <a href="#skills" class="mobile-nav-link block py-2 hover:text-white">Skills</a>
+      <a href="#projects" class="mobile-nav-link block py-2 hover:text-white">Projects</a>
+      <a href="#contact" class="mobile-nav-link block py-2 hover:text-white">Contact</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 pt-32 sm:pt-40 pb-28 space-y-28 sm:space-y-36">
+
+    <section id="hero" class="pt-6 sm:pt-12">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-stone-100 mb-5 leading-[1.12]">
+        Guilherme Vedovelli Varoli
+      </h1>
+
+      <p class="text-lg sm:text-xl text-stone-300 font-medium mb-6 leading-relaxed">
+        Junior Full-Stack Developer <span class="text-stone-500 font-normal">|</span> Computer Science Undergraduate
+      </p>
+
+      <p class="text-stone-400 text-base sm:text-lg leading-relaxed max-w-2xl mb-10">
+        Focused on building reliable web applications with clean software architecture, practical cloud tooling, and zero-downtime infrastructure.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="#projects" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-medium text-white bg-crimson-800 hover:bg-crimson-700 transition-colors shadow-sm">
+          <span>View Projects</span>
+          <svg class="w-4 h-4 text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </a>
+
+        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-medium text-stone-300 hover:text-white bg-transparent hover:bg-white/[0.04] border border-white/[0.12] hover:border-crimson-800/60 transition-colors">
+          <span>Contact Me</span>
+        </a>
+
+        <div class="flex items-center gap-4 ml-2 text-stone-400 text-xs font-mono">
+          <a href="https://github.com/guihvaroli" target="_blank" rel="noopener noreferrer" class="hover:text-stone-200 transition-colors underline decoration-stone-700 underline-offset-4">GitHub</a>
+          <span class="text-stone-600">/</span>
+          <a href="https://linkedin.com/in/guilherme-varoli" target="_blank" rel="noopener noreferrer" class="hover:text-stone-200 transition-colors underline decoration-stone-700 underline-offset-4">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="scroll-mt-28">
+      <div class="flex items-baseline gap-3 mb-8 border-b border-white/[0.07] pb-4">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-stone-100">About Me</h2>
+        <span class="text-xs font-mono text-crimson-400 uppercase tracking-widest">Background</span>
+      </div>
+
+      <div class="space-y-6">
+        <p class="text-stone-300 text-base sm:text-lg leading-relaxed">
+          I am a 4th-semester Computer Science undergraduate at Universidade São Judas Tadeu. I have practical experience in web development, building applications with modern cloud tools, and handling infrastructure like DNS migrations. Fully bilingual (English/Portuguese) and conversational in Spanish, I am actively seeking remote junior developer roles, internships, or freelance opportunities to solve real-world problems.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+          <div class="organic-card p-4 rounded-xl">
+            <span class="block text-xs font-mono text-stone-400 uppercase tracking-wider mb-1">Education</span>
+            <span class="block text-sm font-semibold text-stone-200">Universidade São Judas Tadeu</span>
+            <span class="block text-xs text-stone-400 mt-1">B.S. in Computer Science &bull; 4th Semester</span>
+          </div>
+
+          <div class="organic-card p-4 rounded-xl">
+            <span class="block text-xs font-mono text-stone-400 uppercase tracking-wider mb-1">Languages</span>
+            <span class="block text-sm font-semibold text-stone-200">English &amp; Portuguese</span>
+            <span class="block text-xs text-stone-400 mt-1">Bilingual / Conversational in Spanish</span>
+          </div>
+
+          <div class="organic-card p-4 rounded-xl">
+            <span class="block text-xs font-mono text-stone-400 uppercase tracking-wider mb-1">Focus</span>
+            <span class="block text-sm font-semibold text-stone-200">Full-Stack &amp; Cloud</span>
+            <span class="block text-xs text-stone-400 mt-1">Web applications &amp; infrastructure migrations</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="scroll-mt-28">
+      <div class="flex items-baseline gap-3 mb-8 border-b border-white/[0.07] pb-4">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-stone-100">Technical Skills</h2>
+        <span class="text-xs font-mono text-crimson-400 uppercase tracking-widest">Stack</span>
+      </div>
+
+      <p class="text-stone-400 text-sm mb-6">
+        Core technologies and tools I utilize for software engineering, database modeling, and deployments:
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="organic-card px-4 py-3.5 rounded-lg flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-semibold text-stone-200">JavaScript</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-crimson-700"></span>
+          </div>
+          <span class="text-xs font-mono text-stone-400">ES6+ &bull; Frontend/Backend</span>
+        </div>
+
+        <div class="organic-card px-4 py-3.5 rounded-lg flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-semibold text-stone-200">Python</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-crimson-700"></span>
+          </div>
+          <span class="text-xs font-mono text-stone-400">Scripting &bull; Scraping</span>
+        </div>
+
+        <div class="organic-card px-4 py-3.5 rounded-lg flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-semibold text-stone-200">Java</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-crimson-700"></span>
+          </div>
+          <span class="text-xs font-mono text-stone-400">OOP &bull; Algorithms</span>
+        </div>
+
+        <div class="organic-card px-4 py-3.5 rounded-lg flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-semibold text-stone-200">HTML / CSS</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-crimson-700"></span>
+          </div>
+          <span class="text-xs font-mono text-stone-400">Semantic &bull; Responsive</span>
+        </div>
+
+        <div class="organic-card px-4 py-3.5 rounded-lg flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-semibold text-stone-200">SQL</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-crimson-700"></span>
+          </div>
+          <span class="text-xs font-mono text-stone-400">Relational &bull; Queries</span>
+        </div>
+
+        <div class="organic-card px-4 py-3.5 rounded-lg flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-semibold text-stone-200">Supabase</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-crimson-700"></span>
+          </div>
+          <span class="text-xs font-mono text-stone-400">PostgreSQL &bull; Auth</span>
+        </div>
+
+        <div class="organic-card px-4 py-3.5 rounded-lg flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-semibold text-stone-200">Vercel</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-crimson-700"></span>
+          </div>
+          <span class="text-xs font-mono text-stone-400">CI/CD &bull; Edge Hosting</span>
+        </div>
+
+        <div class="organic-card px-4 py-3.5 rounded-lg flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-semibold text-stone-200">Git</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-crimson-700"></span>
+          </div>
+          <span class="text-xs font-mono text-stone-400">Version Control</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="scroll-mt-28">
+      <div class="flex items-baseline gap-3 mb-8 border-b border-white/[0.07] pb-4">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-stone-100">Selected Projects</h2>
+        <span class="text-xs font-mono text-crimson-400 uppercase tracking-widest">Work</span>
+      </div>
+
+      <p class="text-stone-400 text-sm mb-8">
+        Practical web applications showcasing interactive state management, relational database integration, and real-world operational tooling:
+      </p>
+
+      <div class="space-y-6">
+        <article class="organic-card p-6 sm:p-7 rounded-xl flex flex-col justify-between">
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <h3 class="text-lg sm:text-xl font-bold text-stone-100">
+                Sacramento RPG — Online Character Sheet Platform
+              </h3>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-white/[0.04] text-stone-300 border border-white/[0.06]">JavaScript</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-white/[0.04] text-stone-300 border border-white/[0.06]">HTML/CSS</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-crimson-950/40 text-crimson-300 border border-crimson-900/40">Supabase</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-white/[0.04] text-stone-300 border border-white/[0.06]">Personal Project</span>
+              </div>
+            </div>
+
+            <p class="text-stone-400 text-sm leading-relaxed mb-6">
+              An interactive web application built for the Sacramento tabletop RPG community to create, customize, and persist character sheets dynamically. Engineered with responsive form state management, complex relational attribute calculations, and cloud database persistence via Supabase.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-4 text-xs font-medium pt-4 border-t border-white/[0.06]">
+            <a href="https://github.com/guihvaroli" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-stone-200 hover:text-crimson-400 transition-colors">
+              <span>Source Code (GitHub)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+            <span class="text-stone-600">&bull;</span>
+            <span class="text-xs font-mono text-stone-500">Architecture: Frontend State &bull; Supabase Postgres</span>
+          </div>
+        </article>
+
+        <article class="organic-card p-6 sm:p-7 rounded-xl flex flex-col justify-between">
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <h3 class="text-lg sm:text-xl font-bold text-stone-100">
+                Hair Salon Chain Management Web App
+              </h3>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-white/[0.04] text-stone-300 border border-white/[0.06]">JavaScript</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-white/[0.04] text-stone-300 border border-white/[0.06]">HTML/CSS</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-crimson-950/40 text-crimson-300 border border-crimson-900/40">Internal Tooling</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-white/[0.04] text-stone-300 border border-white/[0.06]">Internship</span>
+              </div>
+            </div>
+
+            <p class="text-stone-400 text-sm leading-relaxed mb-6">
+              A specialized business web application developed during an internship for a regional hair salon chain. Designed to streamline daily salon operations, service catalog handling, and internal workflow routines through an intuitive, mobile-responsive dashboard.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-4 text-xs font-medium pt-4 border-t border-white/[0.06]">
+            <span class="inline-flex items-center gap-1.5 text-stone-400">
+              <svg class="w-3.5 h-3.5 text-crimson-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+              <span>Private Client Repository (Protected by NDA)</span>
+            </span>
+            <span class="text-stone-600">&bull;</span>
+            <a href="#contact" class="text-stone-300 hover:text-crimson-400 transition-colors">
+              <span>Discuss Architecture &rarr;</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="scroll-mt-28">
+      <div class="flex items-baseline gap-3 mb-8 border-b border-white/[0.07] pb-4">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-stone-100">Contact</h2>
+        <span class="text-xs font-mono text-crimson-400 uppercase tracking-widest">Connect</span>
+      </div>
+
+      <div class="organic-card p-8 sm:p-10 rounded-2xl">
+        <h3 class="text-2xl font-bold text-stone-100 mb-3">
+          Get in touch
+        </h3>
+        <p class="text-stone-400 text-sm sm:text-base leading-relaxed max-w-xl mb-8">
+          I'm actively looking for junior developer roles, internships, or freelance projects. If you'd like to collaborate, discuss a project, or just connect, send me an email:
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 mb-8">
+          <a href="mailto:guilhermevvaroli@gmail.com" class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-medium text-white bg-crimson-800 hover:bg-crimson-700 transition-colors">
+            <svg class="w-4 h-4 text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>guilhermevvaroli@gmail.com</span>
+          </a>
+        </div>
+
+        <div class="pt-6 border-t border-white/[0.07] flex flex-wrap items-center gap-6 text-sm text-stone-400">
+          <a href="https://linkedin.com/in/guilherme-varoli" target="_blank" rel="noopener noreferrer" class="hover:text-stone-200 transition-colors flex items-center gap-1.5">
+            <span>LinkedIn</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+          <a href="https://github.com/guihvaroli" target="_blank" rel="noopener noreferrer" class="hover:text-stone-200 transition-colors flex items-center gap-1.5">
+            <span>GitHub</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-white/[0.06] py-8 text-center text-xs text-stone-500">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>
+        &copy; <span id="current-year"></span> Guilherme Vedovelli Varoli
+      </div>
+      <div>
+        Computer Science Undergraduate &bull; Universidade São Judas Tadeu
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isExpanded = !mobileMenu.classList.contains('hidden');
+        if (isExpanded) {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        } else {
+          mobileMenu.classList.remove('hidden');
+          menuIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        });
+      });
+    }
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('border-white/[0.12]');
+        navbar.classList.remove('border-white/[0.06]');
+      } else {
+        navbar.classList.remove('border-white/[0.12]');
+        navbar.classList.add('border-white/[0.06]');
+      }
+    });
+  </script>
+
+</body>
+</html>
